@@ -21,3 +21,9 @@ func init() {
 	db = config.GetDB()
 	db.AutoMigrate(&Order{})
 }
+
+func GetAllOrders() []Order {
+	var Orders []Order
+	db.Find(&Orders)
+	return Orders
+}
