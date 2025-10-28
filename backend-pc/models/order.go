@@ -8,8 +8,7 @@ import (
 var db *gorm.DB
 
 type Order struct {
-	gorm.Model
-	OrderID     string `gorm:"" json:"order_id"`
+	OrderID     string `gorm:"primaryKey" json:"order_id"`
 	OrderDate   string `json:"order_date"`
 	OrderStatus string `json:"order_status"`
 	TotalAmount string `json:"total_amount"`
