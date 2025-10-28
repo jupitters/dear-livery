@@ -6,5 +6,5 @@ import (
 )
 
 func OrderRoutes(router *mux.Router) {
-	router.HandleFunc("/order/", controller.GetOrders).Methods("GET")
+	router.HandleFunc("/order", controller.GetOrders).Methods("GET")
 }
