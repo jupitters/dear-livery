@@ -7,7 +7,7 @@ const Orders = () => {
       {
         orders.map((order) => {
           return (<div>
-            {order.name.first}
+            {order.address}
           </div>) 
         })
       }
