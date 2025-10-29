@@ -1,4 +1,5 @@
 import { createContext, useEffect } from 'react'
+import axios from 'axios';
 
 const AppContext = createContext()
 
@@ -10,9 +11,8 @@ const AppProvider = ({ children }) => {
     useEffect(()=> {
         const fetchData = async () => {
             try {
-                const response = await fetch(randomUserUrl)
-                const data = await response.json()
-                console.log(data.results)
+                const response = await axios.get(randomUserUrl)
+                console.log(response.data)
             } catch (error) {
                 console.log(error)
             }
