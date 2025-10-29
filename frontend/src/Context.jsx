@@ -8,17 +8,17 @@ const randomUserUrl = 'https://randomuser.me/api/'
 
 const AppProvider = ({ children }) => {
 
-    useEffect(()=> {
-        const fetchData = async () => {
+    const fetchOrders = async (url) => {
             try {
-                const response = await axios.get(randomUserUrl)
-                console.log(response.data)
+                const response = await axios.get(url)
+                console.log(response.data.results)
             } catch (error) {
                 console.log(error)
             }
         }
 
-        fetchData()
+    useEffect(()=> {
+        fetchOrders(randomUserUrl)
     }, [])
 
     return <AppContext.Provider value='Hello'>
