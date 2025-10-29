@@ -12,7 +12,7 @@ const AppProvider = ({ children }) => {
     const fetchOrders = async (url) => {
             try {
                 const {data} = await axios.get(url)
-                setOrders(data)
+                setOrders(data.results)
                 // console.log(data)
             } catch (error) {
                 console.log(error.response)

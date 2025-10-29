@@ -1,11 +1,18 @@
 import GlobalContext from "../GlobalContext";
 
 const Orders = () => {
-    const context = GlobalContext()
-    console.log(context)
-  return (
-    <div>Orders</div>
-  )
+    const { orders } = GlobalContext()
+
+  return <section>
+      {
+        orders.map((order) => {
+          return (<div>
+            {order.name.first}
+          </div>) 
+        })
+      }
+    </section>
+  
 }
 
 export default Orders
