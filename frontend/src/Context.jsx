@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import { createContext } from 'react'
 
-const AppContext = React.creteContext()
+const AppContext = createContext()
 
 const AppProvider = ({ children }) => {
     return <AppContext.Provider value='Hello'>
