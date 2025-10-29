@@ -185,3 +185,44 @@ ul {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+.single-order{
+  background: var(--white);
+  color: var(--textColor);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-2);
+  transition: var(--transition);
+}
+.single-order:hover{
+  box-shadow: var(--shadow-4);
+}
+.single-order img{
+  height: 15rem;
+  width: 100%;
+  border-top-left-radius: var(--borderRadius);
+  border-top-right-radius: var(--borderRadius);
+  cursor: pointer;
+}
+
+.single-order h5 {
+    text-align: center;
+}
+
+.single-order footer{
+  padding: 1rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.buy-btn{
+  background: transparent;
+  border: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.buy-btn:hover{
+  color: var(--red-dark);
+  transform: translateY(-2px);
+}

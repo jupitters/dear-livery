@@ -4,15 +4,14 @@ const Orders = () => {
     const { orders } = GlobalContext()
 
 
-  return <section>
+  return <section className="section-center">
       {
         orders.map((order) => {
           return <article key={order.id} className="single-order">
-            <img src="#" alt="" style={{width: '200px'}} className="img"/>
+            <img src="#" alt="" className="img"/>
             <footer>
               <h5>Pedido nº: {order.id}</h5>
             </footer>
-            
           </article>
         })
       }
