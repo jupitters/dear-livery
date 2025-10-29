@@ -1,8 +1,7 @@
-import { useContext } from "react"
-import { AppContext } from "../Context"
+import GlobalContext from "../GlobalContext";
 
 const Orders = () => {
-    const context = useContext(AppContext)
+    const context = GlobalContext()
     console.log(context)
   return (
     <div>Orders</div>
