@@ -1,4 +1,4 @@
-import { createContext, useEffect } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import axios from 'axios';
 
 const AppContext = createContext()
@@ -7,11 +7,13 @@ const AppContext = createContext()
 const randomUserUrl = 'https://randomuser.me/api/'
 
 const AppProvider = ({ children }) => {
+    const [orders, setOrders] = useState([])
 
     const fetchOrders = async (url) => {
             try {
                 const {data} = await axios.get(url)
-                console.log(data)
+                setOrders(data)
+                // console.log(data)
             } catch (error) {
                 console.log(error.response)
             }
@@ -21,7 +23,7 @@ const AppProvider = ({ children }) => {
         fetchOrders(randomUserUrl)
     }, [])
 
-    return <AppContext.Provider value='Hello'>
+    return <AppContext.Provider value={{ orders }}>
         { children }
     </AppContext.Provider>
 }
