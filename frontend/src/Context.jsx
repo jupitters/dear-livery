@@ -10,10 +10,10 @@ const AppProvider = ({ children }) => {
 
     const fetchOrders = async (url) => {
             try {
-                const response = await axios.get(url)
-                console.log(response.data.results)
+                const {data} = await axios.get(url)
+                console.log(data)
             } catch (error) {
-                console.log(error)
+                console.log(error.response)
             }
         }
 
