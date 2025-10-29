@@ -1,22 +1,12 @@
 import GlobalContext from "../GlobalContext";
+import OrdersList from "./OrdersList";
 
 const Orders = () => {
-    const { orders } = GlobalContext()
+  const { orders } = GlobalContext();
 
+  if (!orders.length) return <p>Carregando pedidos...</p>;
 
-  return <section className="section-center">
-      {
-        orders.map((order) => {
-          return <article key={order.id} className="single-order">
-            <img src="#" alt="" className="img"/>
-            <footer>
-              <h5>Pedido nº: {order.id}</h5>
-            </footer>
-          </article>
-        })
-      }
-    </section>
-  
-}
+  return <OrdersList orders={orders} />;
+};
 
-export default Orders
+export default Orders;

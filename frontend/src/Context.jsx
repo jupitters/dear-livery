@@ -25,6 +25,23 @@ const order = {
           "price": 400.00
         }
       ]
+    },
+    {
+      "id": 2,
+      "userId": 6,
+      "address": "Street 1, Av. 42",
+      "orderDate": "2025-10-31",
+      "totalAmount": 250.00,
+      "status": "PENDING",
+      "items": [
+        {
+          "productId": 1,
+          "productName": "Watch",
+          "productBrand": "Apple",
+          "quantity": 1,
+          "price": 250.00
+        }
+      ]
     }
   ]
 }
