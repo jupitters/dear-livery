@@ -22,14 +22,7 @@ const OrdersList = ({ orders }) => {
               <p><b>Total:</b> R$ {order.totalAmount}</p>
 
               <div>
-                <b>Itens:</b>
-                <ul className="order-items">
-                  {order.items.map((item) => (
-                    <li key={item.id}>
-                      {item.productName} ({item.productBrand}) — {item.quantity}x R$ {item.price}
-                    </li>
-                  ))}
-                </ul>
+                
               </div>
             </div>
           )}
