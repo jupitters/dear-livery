@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const OrdersList = ({ orders }) => {
+const OrdersList = ({ orders, users }) => {
   const [openId, setOpenId] = useState(null);
 
   const toggle = (id) => {
@@ -30,6 +30,10 @@ const OrdersList = ({ orders }) => {
                     </li>
                   ))}
                 </ul>
+              </div>
+              <div>
+                <b>Info:</b>
+                <strong>Name:</strong> {console.log(users)}
               </div>
             </div>
           )}

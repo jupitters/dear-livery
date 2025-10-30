@@ -48,6 +48,7 @@ const order = {
 
 const AppProvider = ({ children }) => {
     const [orders, setOrders] = useState([])
+    const [users, setUsers] = useState([])
 
     const fetchOrders = async (url) => {
             try {
@@ -59,12 +60,24 @@ const AppProvider = ({ children }) => {
                 console.log(error.response)
             }
         }
+    
+    const fetchUsers = async (id) => {
+    try{
+      const {data} = await axios.get(`http://localhost:9191/api/v1/users/user/${id}`)
+      setUsers(data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
     useEffect(()=> {
         fetchOrders(ordersUrl)
+        orders.map((order) => {
+          fetchUsers(order.userId);
+        })
     }, [])
 
-    return <AppContext.Provider value={{ orders }}>
+    return <AppContext.Provider value={{ orders, users }}>
         { children }
     </AppContext.Provider>
 }
