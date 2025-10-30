@@ -25,7 +25,7 @@ const OrdersList = ({ orders }) => {
                 <b>Itens:</b>
                 <ul className="order-items">
                   {order.items.map((item) => (
-                    <li key={item.id}>
+                    <li key={item.productId}>
                       {item.productName} ({item.productBrand}) — {item.quantity}x R$ {item.price}
                     </li>
                   ))}

@@ -3,8 +3,8 @@ import axios from 'axios';
 
 const AppContext = createContext()
 
-// const ordersUrl = "http://localhost:9191/api/v1/orders/all"
-const randomUserUrl = 'https://randomuser.me/api/'
+const ordersUrl = "http://localhost:9191/api/v1/orders/all"
+// const randomUserUrl = 'https://randomuser.me/api/'
 
 const order = {
   "response": "Item Orders success!",
@@ -52,17 +52,17 @@ const AppProvider = ({ children }) => {
     const fetchOrders = async (url) => {
             try {
                 const {data} = await axios.get(url)
-                setOrders(order.data)
-                // setOrders(data.results)
-                console.log(orders)
+                // setOrders(order.data)
+                // console.log(orders)
+                setOrders(data.data)
             } catch (error) {
                 console.log(error.response)
             }
         }
 
     useEffect(()=> {
-        fetchOrders(randomUserUrl)
-    }, [orders])
+        fetchOrders(ordersUrl)
+    }, [])
 
     return <AppContext.Provider value={{ orders }}>
         { children }
