@@ -20,9 +20,13 @@ img {
 }
 
 .item-list-header{
-    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
     background: #f4f4f4;
     font-weight: bold;
+    padding: 0.5rem 0.5rem;
     cursor: pointer;
 }
 

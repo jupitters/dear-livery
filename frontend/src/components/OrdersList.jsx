@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GlobalContext from "../GlobalContext";
 import Button from 'react-bootstrap/Button';
+import { GoPackageDependents } from "react-icons/go";
 
 const OrdersList = () => {
   const { orders, users } = GlobalContext();
@@ -22,7 +23,7 @@ const OrdersList = () => {
           <div style={{width: "100%", justifyContent: "space-between"}} onClick={() => toggle(order.id)} className="item-list-header">
               Pedido #{order.id} — {order.status}
             
-              <Button onClick={(e) => {e.stopPropagation(); console.log("enviado");}} >Send Deliver</Button>
+              <Button variant="primary" size="sm" onClick={(e) => {e.stopPropagation(); console.log("enviado");}} >Send <GoPackageDependents /></Button>
           </div>
 
           {openId === order.id && (
