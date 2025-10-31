@@ -36,6 +36,7 @@ const OrdersList = () => {
               <div>
                 <b>Info:</b>
                 <strong>Name:</strong> {console.log(users)}
+                <strong>Name:</strong> {console.log(orders)}
               </div>
             </div>
           )}

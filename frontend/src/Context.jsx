@@ -56,25 +56,18 @@ const AppProvider = ({ children }) => {
                 // setOrders(order.data)
                 // console.log(orders)
                 setOrders(data.data)
+
+                for(const order of data.data){
+                  const {data} = await axios.get(`http://localhost:9191/api/v1/users/user/${order.userId}`)
+                  setUsers((prevUsers) => [...prevUsers, data.data])
+                }
             } catch (error) {
                 console.log(error.response)
             }
         }
-    
-    const fetchUsers = async (id) => {
-    try{
-      const {data} = await axios.get(`http://localhost:9191/api/v1/users/user/${id}`)
-      setUsers(data.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
     useEffect(()=> {
         fetchOrders(ordersUrl)
-        orders.map((order) => {
-          fetchUsers(order.userId);
-        })
     }, [])
 
     return <AppContext.Provider value={{ orders, users }}>
