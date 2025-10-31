@@ -16,6 +16,7 @@ const OrdersList = () => {
       {orders.map((order) => {
         const user = users.find((u) => u.id === order.userId);
 
+      return (
         <div key={order.id} className="item-list">
           <div onClick={() => toggle(order.id)} className="item-list-header">
             Pedido #{order.id} — {order.status}
@@ -41,12 +42,13 @@ const OrdersList = () => {
               <div>
                 <b>Info:</b>
                 <ul>
-                  <li key={order.userId}><strong>Name:</strong> {users.(order.userId)}</li>
+                  <li key={order.userId}><strong>Name:</strong> {user.firstName} {user.lastName}</li>
                 </ul>
               </div>
             </div>
           )}
         </div>
+      )
       })}
     </section>
   );
