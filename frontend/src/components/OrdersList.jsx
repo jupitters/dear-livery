@@ -1,6 +1,8 @@
 import { useState } from "react";
+import GlobalContext from "../GlobalContext";
 
-const OrdersList = ({ orders, users }) => {
+const OrdersList = () => {
+  const { orders, users } = GlobalContext();
   const [openId, setOpenId] = useState(null);
 
   const toggle = (id) => {

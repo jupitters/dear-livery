@@ -6,7 +6,7 @@ const Orders = () => {
 
   if (!orders.length) return <p>Carregando pedidos...</p>;
 
-  return <OrdersList orders={orders} />;
+  return <OrdersList />;
 };
 
 export default Orders;
