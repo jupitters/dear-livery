@@ -46,6 +46,40 @@ const order = {
   ]
 }
 
+const user = {
+  "response": "Success!",
+  "data": {
+    "id": 6,
+    "firstName": "The",
+    "lastName": "Admin 1",
+    "address": "Street 1, Av. 80",
+    "email": "admin1@email.com",
+    "orders": [
+      {
+        "id": 1,
+        "userId": 6,
+        "orderDate": "2025-10-30",
+        "totalAmount": 800.00,
+        "status": "PENDING",
+        "items": [
+          {
+            "productId": 1,
+            "productName": "TV",
+            "productBrand": "Apple",
+            "quantity": 2,
+            "price": 400.00
+          }
+        ]
+      }
+    ],
+    "cart": {
+      "cartId": 1,
+      "items": [],
+      "totalAmount": 800.00
+    }
+  }
+}
+
 const AppProvider = ({ children }) => {
     const [orders, setOrders] = useState([])
     const [users, setUsers] = useState([])

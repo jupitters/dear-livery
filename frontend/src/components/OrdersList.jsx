@@ -41,8 +41,9 @@ const OrdersList = () => {
               </div>
               <div>
                 <b>Info:</b>
-                <ul>
-                  <li key={order.userId}><strong>Name:</strong> {user.firstName} {user.lastName}</li>
+                <ul key={order.userId}>
+                  <li><strong>Name:</strong> {user.firstName} {user.lastName}</li>
+                  <li><strong>Address:</strong> {user.address}</li>
                 </ul>
               </div>
             </div>
