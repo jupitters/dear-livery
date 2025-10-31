@@ -9,9 +9,13 @@ const OrdersList = () => {
     setOpenId(openId === id ? null : id);
   };
 
+  
+
   return (
     <section className="list">
-      {orders.map((order) => (
+      {orders.map((order) => {
+        const user = users.find((u) => u.id === order.userId);
+
         <div key={order.id} className="item-list">
           <div onClick={() => toggle(order.id)} className="item-list-header">
             Pedido #{order.id} — {order.status}
@@ -27,6 +31,7 @@ const OrdersList = () => {
                 <b>Itens:</b>
                 <ul className="order-items">
                   {order.items.map((item) => (
+                    
                     <li key={item.productId}>
                       {item.productName} ({item.productBrand}) — {item.quantity}x R$ {item.price}
                     </li>
@@ -35,13 +40,14 @@ const OrdersList = () => {
               </div>
               <div>
                 <b>Info:</b>
-                <strong>Name:</strong> {console.log(users)}
-                <strong>Name:</strong> {console.log(orders)}
+                <ul>
+                  <li key={order.userId}><strong>Name:</strong> {users.(order.userId)}</li>
+                </ul>
               </div>
             </div>
           )}
         </div>
-      ))}
+      })}
     </section>
   );
 };
