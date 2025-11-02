@@ -12,6 +12,8 @@ const OrdersList = () => {
   };
 
   const sendDelivery = () => {
+    // todo: atualizar para enviado o status
+    // enviar endereço para o aplicativo
     console.log("Enviado!")
   }
 
@@ -34,7 +36,7 @@ const OrdersList = () => {
               <p><b>Total:</b> R$ {order.totalAmount}</p>
 
               <div>
-                <b>Itens:</b>
+                <b>Items:</b>
                 <table className="table hover mt-1">
                   <thead style={{color: "rgb(79,89,102)"}}>
                     <tr>
