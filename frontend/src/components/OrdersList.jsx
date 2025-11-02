@@ -11,7 +11,9 @@ const OrdersList = () => {
     setOpenId(openId === id ? null : id);
   };
 
-  
+  const sendDelivery = () => {
+    console.log("Enviado!")
+  }
 
   return (
     <section className="list">
@@ -23,7 +25,7 @@ const OrdersList = () => {
           <div style={{width: "100%", justifyContent: "space-between"}} onClick={() => toggle(order.id)} className="item-list-header">
               Pedido #{order.id} — {order.status}
             
-              <Button variant="primary" size="sm" onClick={(e) => {e.stopPropagation(); console.log("enviado");}} >Send <GoPackageDependents /></Button>
+              <Button variant="primary" size="sm" onClick={(e) => {e.stopPropagation(); sendDelivery();}} >Send <GoPackageDependents /></Button>
           </div>
 
           {openId === order.id && (
