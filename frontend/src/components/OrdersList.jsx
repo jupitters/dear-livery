@@ -34,14 +34,28 @@ const OrdersList = () => {
 
               <div>
                 <b>Itens:</b>
-                <ul className="order-items">
-                  {order.items.map((item) => (
-                    
-                    <li key={item.productId}>
-                      {item.productName} ({item.productBrand}) — {item.quantity}x R$ {item.price}
-                    </li>
-                  ))}
-                </ul>
+                <table className="table hover mt-1">
+                  <thead style={{color: "rgb(79,89,102)"}}>
+                    <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {
+                      order.items.map((item) => (
+                        <tr>
+                          <td scope="row">{item.productName}</td>
+                          <td>{item.productBrand}</td>
+                          <td>{item.quantity}</td>
+                          <td>{item.price}</td>
+                        </tr>
+                      ))
+                    }
+                  </tbody>
+                </table>
               </div>
               <div>
                 <b>Info:</b>
