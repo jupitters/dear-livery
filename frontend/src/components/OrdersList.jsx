@@ -28,7 +28,7 @@ const OrdersList = () => {
 
           {openId === order.id && (
             <div className="item-list-details">
-              <p><b>Endereço:</b> {order.address}</p>
+              <p><b>Endereço:</b> {user.address}</p>
               <p><b>Data:</b> {order.orderDate}</p>
               <p><b>Total:</b> R$ {order.totalAmount}</p>
 
