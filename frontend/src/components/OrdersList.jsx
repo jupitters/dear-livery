@@ -28,7 +28,6 @@ const OrdersList = () => {
 
           {openId === order.id && (
             <div className="item-list-details">
-              <p><b>Endereço:</b> {user.address}</p>
               <p><b>Data:</b> {order.orderDate}</p>
               <p><b>Total:</b> R$ {order.totalAmount}</p>
 
@@ -58,7 +57,7 @@ const OrdersList = () => {
                 </table>
               </div>
               <div>
-                <b>Info:</b>
+                <b>Client:</b>
                 <ul key={order.userId}>
                   <li><strong>Name:</strong> {user.firstName} {user.lastName}</li>
                   <li><strong>Address:</strong> {user.address}</li>
