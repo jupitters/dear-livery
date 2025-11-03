@@ -2,6 +2,8 @@ import { useState } from "react";
 import GlobalContext from "../GlobalContext";
 import Button from 'react-bootstrap/Button';
 import { GoPackageDependents } from "react-icons/go";
+import axios from 'axios';
+
 
 const OrdersList = () => {
   const { orders, users } = GlobalContext();
@@ -11,11 +13,6 @@ const OrdersList = () => {
     setOpenId(openId === id ? null : id);
   };
 
-  const sendDelivery = () => {
-    // todo: atualizar para enviado o status
-    // enviar endereço para o aplicativo
-    console.log("Enviado!")
-  }
 
   return (
     <section className="list">
@@ -49,7 +46,7 @@ const OrdersList = () => {
                   <tbody>
                     {
                       order.items.map((item) => (
-                        <tr>
+                        <tr key={Math.random()}>
                           <td scope="row">{item.productName}</td>
                           <td>{item.productBrand}</td>
                           <td>{item.quantity}</td>

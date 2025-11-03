@@ -104,7 +104,22 @@ const AppProvider = ({ children }) => {
         fetchOrders(ordersUrl)
     }, [])
 
-    return <AppContext.Provider value={{ orders, users }}>
+    const sendDelivery = async (orderId) => {
+      // todo: atualizar para enviado o status
+      // enviar endereço para o aplicativo
+      try{
+        await axios.patch(`http://localhost:9191/api/v1/orders/order/${orderId}`, {orderStatus: "SHIPPED"});
+
+        setOrders((prevOrders) => 
+          prevOrders.map((order) =>
+            order.id === orderId ? {...order, orderStatus: "SHIPPED"} : order
+          ));
+      } catch(error){
+        console.log(error)
+      }
+  }
+
+    return <AppContext.Provider value={{ orders, users, sendDelivery }}>
         { children }
     </AppContext.Provider>
 }
