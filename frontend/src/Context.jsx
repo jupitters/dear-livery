@@ -12,7 +12,6 @@ const order = {
     {
       "id": 1,
       "userId": 6,
-      "address": "Street 1, Av. 42",
       "orderDate": "2025-10-28",
       "totalAmount": 800.00,
       "status": "PENDING",
@@ -29,7 +28,6 @@ const order = {
     {
       "id": 2,
       "userId": 6,
-      "address": "Street 1, Av. 42",
       "orderDate": "2025-10-31",
       "totalAmount": 250.00,
       "status": "PENDING",
@@ -87,18 +85,18 @@ const AppProvider = ({ children }) => {
     const fetchOrders = async (url) => {
             try {
                 const {data} = await axios.get(url)
-                // setOrders(order.data)
-                // console.log(orders)
                 setOrders(data.data)
 
+                // setOrders(order.data)
+                // console.log(orders)
                 
-                const userResponses = await Promise.all(
+                const usersData = await Promise.all(
                   data.data.map((order) =>
                     axios.get(`http://localhost:9191/api/v1/users/user/${order.userId}`)
                   )
                 )
 
-                setUsers(userResponses.map((res) => res.data.data))
+                setUsers(usersData.map((res) => res.data.data))
             } catch (error) {
                 console.log(error.response)
             }

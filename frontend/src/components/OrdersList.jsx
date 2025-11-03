@@ -20,14 +20,14 @@ const OrdersList = () => {
       return (
         <div key={order.id} className="item-list">
           <div onClick={() => toggle(order.id)} className="item-list-header">
-              Pedido #{order.id} — {order.status}
+              Order #{order.id} — {order.status}
             
               <Button variant="primary" size="sm" onClick={(e) => {e.stopPropagation(); sendDelivery(order.id, user);}} disabled={order.status !== "PENDING"}>Send <GoPackageDependents /></Button>
           </div>
 
           {openId === order.id && (
             <div className="item-list-details">
-              <p><b>Data:</b> {order.orderDate}</p>
+              <p><b>Date:</b> {order.orderDate}</p>
               <p><b>Total:</b> R$ {order.totalAmount}</p>
 
               <div>
