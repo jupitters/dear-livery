@@ -105,16 +105,15 @@ const AppProvider = ({ children }) => {
     }, [])
 
     const sendDelivery = async (orderId) => {
-      // todo: atualizar para enviado o status
-      // enviar endereço para o aplicativo
+      // todo: enviar endereço para o aplicativo
       try{
-        await axios.patch(`http://localhost:9191/api/v1/orders/order/${orderId}`, {orderStatus: "SHIPPED"});
+        await axios.patch(`http://localhost:9191/api/v1/orders/order/${orderId}`, {status: "SHIPPED"});
 
         setOrders((prevOrders) => 
           prevOrders.map((order) =>
-            order.id === orderId ? {...order, orderStatus: "SHIPPED"} : order
+            order.id === orderId ? {...order, status: "SHIPPED"} : order
           ));
-          
+
         alert(`Pedido #${orderId} enviado com sucesso!`);
       } catch(error){
         console.log(error)

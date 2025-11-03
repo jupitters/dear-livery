@@ -12,7 +12,6 @@ const OrdersList = () => {
     setOpenId(openId === id ? null : id);
   };
 
-
   return (
     <section className="list">
       {orders.map((order) => {
@@ -20,7 +19,7 @@ const OrdersList = () => {
 
       return (
         <div key={order.id} className="item-list">
-          <div style={{width: "100%", justifyContent: "space-between"}} onClick={() => toggle(order.id)} className="item-list-header">
+          <div onClick={() => toggle(order.id)} className="item-list-header">
               Pedido #{order.id} — {order.status}
             
               <Button variant="primary" size="sm" onClick={(e) => {e.stopPropagation(); sendDelivery(order.id);}} >Send <GoPackageDependents /></Button>
