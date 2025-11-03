@@ -2,11 +2,10 @@ import { useState } from "react";
 import GlobalContext from "../GlobalContext";
 import Button from 'react-bootstrap/Button';
 import { GoPackageDependents } from "react-icons/go";
-import axios from 'axios';
 
 
 const OrdersList = () => {
-  const { orders, users } = GlobalContext();
+  const { orders, users, sendDelivery } = GlobalContext();
   const [openId, setOpenId] = useState(null);
 
   const toggle = (id) => {
@@ -24,7 +23,7 @@ const OrdersList = () => {
           <div style={{width: "100%", justifyContent: "space-between"}} onClick={() => toggle(order.id)} className="item-list-header">
               Pedido #{order.id} — {order.status}
             
-              <Button variant="primary" size="sm" onClick={(e) => {e.stopPropagation(); sendDelivery();}} >Send <GoPackageDependents /></Button>
+              <Button variant="primary" size="sm" onClick={(e) => {e.stopPropagation(); sendDelivery(order.id);}} >Send <GoPackageDependents /></Button>
           </div>
 
           {openId === order.id && (

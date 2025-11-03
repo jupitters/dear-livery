@@ -114,6 +114,8 @@ const AppProvider = ({ children }) => {
           prevOrders.map((order) =>
             order.id === orderId ? {...order, orderStatus: "SHIPPED"} : order
           ));
+          
+        alert(`Pedido #${orderId} enviado com sucesso!`);
       } catch(error){
         console.log(error)
       }
