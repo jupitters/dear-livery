@@ -22,6 +22,7 @@ img {
 .item-list-header{
     display: flex;
     justify-content: space-between;
+    width: 100%;
     align-items: center;
     margin-right: 10px;
     background: #f4f4f4;

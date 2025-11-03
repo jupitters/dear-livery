@@ -91,10 +91,14 @@ const AppProvider = ({ children }) => {
                 // console.log(orders)
                 setOrders(data.data)
 
-                for(const order of data.data){
-                  const {data} = await axios.get(`http://localhost:9191/api/v1/users/user/${order.userId}`)
-                  setUsers((prevUsers) => [...prevUsers, data.data])
-                }
+                
+                const userResponses = await Promise.all(
+                  data.data.map((order) =>
+                    axios.get(`http://localhost:9191/api/v1/users/user/${order.userId}`)
+                  )
+                )
+
+                setUsers(userResponses.map((res) => res.data.data))
             } catch (error) {
                 console.log(error.response)
             }
@@ -107,16 +111,21 @@ const AppProvider = ({ children }) => {
     const sendDelivery = async (orderId) => {
       // todo: enviar endereço para o aplicativo
       try{
-        await axios.patch(`http://localhost:9191/api/v1/orders/order/${orderId}`, {status: "SHIPPED"});
-
         setOrders((prevOrders) => 
           prevOrders.map((order) =>
             order.id === orderId ? {...order, status: "SHIPPED"} : order
           ));
 
+        await axios.patch(`http://localhost:9191/api/v1/orders/order/${orderId}`, {status: "SHIPPED"});
+
         alert(`Pedido #${orderId} enviado com sucesso!`);
       } catch(error){
         console.log(error)
+
+        setOrders((prevOrders) => 
+        prevOrders.map((order) =>
+        order.id === orderId ? {...order, status: "PENDING"} : order
+        ));
       }
   }
 
