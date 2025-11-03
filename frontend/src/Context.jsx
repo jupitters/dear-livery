@@ -108,7 +108,7 @@ const AppProvider = ({ children }) => {
         fetchOrders(ordersUrl)
     }, [])
 
-    const sendDelivery = async (orderId) => {
+    const sendDelivery = async (orderId, user) => {
       // todo: enviar endereço para o aplicativo
       try{
         setOrders((prevOrders) => 
@@ -119,6 +119,10 @@ const AppProvider = ({ children }) => {
         await axios.patch(`http://localhost:9191/api/v1/orders/order/${orderId}`, {status: "SHIPPED"});
 
         alert(`Pedido #${orderId} enviado com sucesso!`);
+
+        // exemplo:
+        // await axios.post(`http://localhost:9090/api/v1/dear-livery/driver`, user.address);
+        console.log(user.address);
       } catch(error){
         console.log(error)
 

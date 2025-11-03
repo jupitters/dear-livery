@@ -22,7 +22,7 @@ const OrdersList = () => {
           <div onClick={() => toggle(order.id)} className="item-list-header">
               Pedido #{order.id} — {order.status}
             
-              <Button variant="primary" size="sm" onClick={(e) => {e.stopPropagation(); sendDelivery(order.id);}} disabled={order.status !== "PENDING"}>Send <GoPackageDependents /></Button>
+              <Button variant="primary" size="sm" onClick={(e) => {e.stopPropagation(); sendDelivery(order.id, user);}} disabled={order.status !== "PENDING"}>Send <GoPackageDependents /></Button>
           </div>
 
           {openId === order.id && (
