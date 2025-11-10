@@ -104,6 +104,12 @@ const AppProvider = ({ children }) => {
 
     useEffect(()=> {
         fetchOrders(ordersUrl)
+
+        const interval = setInterval(() => {
+          fetchOrders(ordersUrl);
+        }, 10000)
+
+        return () => clearInterval(interval);
     }, [])
 
     const sendDelivery = async (orderId, user) => {
